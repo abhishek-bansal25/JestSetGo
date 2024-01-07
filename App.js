@@ -69,12 +69,15 @@ function App() {
 
       {/* sort and filter btns */}
       <View style={styles.btnContainer}>
-        <Button
-          onPress={() => setDropdownVisible(prev => !prev)}
-          title="filter"
-        />
-        <Button onPress={sortLowToHigh} title="sort: low to high" />
-        <Button onPress={sortHighToLow} title="sort: high to low" />
+        <TouchableOpacity style={styles.btn} onPress={() => setDropdownVisible(prev => !prev)} >
+          <Text>filter</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn} onPress={sortLowToHigh} >
+          <Text>sort: low to high</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn} onPress={sortHighToLow} >
+          <Text>sort: high to low</Text>
+        </TouchableOpacity>
       </View>
 
       {/* filter dropdown */}
@@ -136,12 +139,13 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     paddingHorizontal: 10,
     paddingBottom: 10,
+    flexWrap: "wrap"
   },
   dropdown: {
-    margin: 10,
+    marginBottom: 10,
+    marginHorizontal: 10,
     padding: 5,
     width: '20%',
     borderWidth: 1,
@@ -158,6 +162,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   center: { justifyContent: 'center', alignItems: 'center' },
+  btn: {
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: "lightblue",
+    marginHorizontal: 10,
+    marginVertical: 5
+  }
 });
 
 export default App;
